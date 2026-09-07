@@ -5,6 +5,8 @@ import requests
 from flask import Flask, render_template, request, redirect
 import uuid
 
+import pdf
+
 dirname, _ = os.path.split(os.path.abspath(__file__))
 THIS_DIRECTORY = f'{dirname}{os.sep}'
 
@@ -19,7 +21,7 @@ def root():
     )
 
 @app.route('/preview', methods=['POST'])
-def generate():
+def preview():
     if request.method == 'POST':
         decklist = request.form.get('decklist')
         cards, not_found = parse_decklist(decklist)
@@ -32,6 +34,8 @@ def generate():
         )
     else:
         return redirect('/')
+
+
 
 # FUNCTIONS
 
