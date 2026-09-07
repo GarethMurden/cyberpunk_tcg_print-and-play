@@ -80,3 +80,18 @@ textarea {
 		align-items: center;
 		width: 300px;
 	}
+
+#preview {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	justify-content: center;
+}
+
+	#preview .card_image {
+		width: 150px;
+	}
+
+		#preview .card_image img {
+			width: 100%;
+		}

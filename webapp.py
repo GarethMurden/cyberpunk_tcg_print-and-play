@@ -49,6 +49,8 @@ def get_card(name):
     for card_data in all_cards['data']['items']:
         if name in card_data['name']:
             card = card_data
+            # TODO: Remove this hard-coded expansion URL & use cached images instead
+            card['image'] = f'https://vendortools.net/media/vendor-tools/games/cyberpunk-tcg/expansions/welcome-to-night-city-beta/cards/{card["slug"]}.webp'
     return card is not None, card
 
 def load_json(filename):
@@ -78,6 +80,7 @@ def refresh_cache(cache_file):
     # - if `ok:true`:
     #   - pagination
     #   - save_json(data, filename)
+    #   - cache images
     pass
 
 def save_json(data, filename):

@@ -12,6 +12,14 @@
 			</ul>
 		</div>
 	{% endif %}
+
+	<section id="preview">
+		{% for card in cards %}
+			<div class="card_image">
+				<img src="{{ card['image'] }}?w=150&q=68">
+			</div>
+		{% endfor %}
+	</section>
 	
 	<form id="generate_form" method="POST">
 		<input type="hidden" name="deck_id" value="{{ deck_id }}">
