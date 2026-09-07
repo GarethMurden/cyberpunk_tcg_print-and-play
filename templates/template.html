@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='card_logo.ico') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='cyberpunk.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}"/>
+	<title>Cyberpunk TCG Print &amp; Play</title>
+</head>
+<body>
+	<nav class="cyber-razor-bottom bg-dark fg-white p-3 mt-4">
+		<div class="logo">
+			<img src="{{ url_for('static', filename='card_logo.png') }}">
+			<h1>Title</h1>
+		</div>
+		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Help a choom out', '#000', 'F1F7326TN');kofiwidget2.draw();</script> 
+	</nav>
+	{% if message %}
+		<div class="alert message">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 #24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" #stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" #y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" #y2="8"></line></svg>
+			<span>{{ message }}</span>
+		</div>
+	{% endif %}
+	{% if error %}
+		<div class="alert error">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 #24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" #stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 #2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" #x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+			<span>{{ error }}</span>
+		</div>
+	{% endif %}
+	
+	{% block body %}
+	{% endblock %}
+</body>
+{% block scripts %}
+{% endblock %}
+</html>
