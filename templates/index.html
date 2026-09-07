@@ -1,27 +1,47 @@
 {% extends "template.html" %}
 {% block body %}
 <section id="content">
-	<h3 class="cyber-h">Decklist</h3>
-	<div class="code-block mt-6">
-		<p>Build a deck at <a href="https://cyberpunktcg.com/decks">cyberpunktcg.com</a>, export it as text and paste it below.</p>
-		<p>Hit Submit and we'll generate a PDF file with all your cards ready to print, cut out and use for a kitchen-table, back-alley or corpo conference room playtest.</p>
-	</div>
+	<h1 class="cyber-h">Print Your Decklist</h1>
+	<p>Build a deck at <a href="https://cyberpunktcg.com/decks">cyberpunktcg.com</a>, export it <strong class="cyber-glitch-2">as text</strong> and paste it below.</p>
+	<p>Hit Submit and we'll generate a PDF file with all your cards ready to print, cut out and use for a kitchen-table, back-alley or corpo conference room playtest.</p>
 	<form id="decklist_form" method="POST" action="/preview">
 		<textarea type="text" class="code-block cyber-input-long" name="decklist" placeholder="# Jackie's Gigs
 
 // Legends (3)
 1 Kerry Eurodyne: Axe, Attitude, Audience
-1 Muamar Reyes — El Capitán: El Capitán
+1 Muamar Reyes — El Capitán
 1 Rogue Amendiares: Preem Solo
 
 // Units (28)
 3 Secondhand Bombus
-..."></textarea>
+3 Sketchy Ripper
+3 Dexter DeShawn: One Last Chance
+3 Maelstrom Goons
+3 Viktor Vektor: You Might Feel a Little Pinch
+2 Hanako Arasaka: In a Gilded Cage
+3 Offduty Malfini
+3 T-Bug: Amateur Philosopher
+2 Heywood Ripperdoc
+3 Jackie Welles: Ride or Die Choom
+
+// Gears (11)
+2 Kiroshi Optics
+2 Mandibular Upgrade
+2 Adrenaline Converter
+1 Zetatech Faceplate
+2 Gorilla Arms
+2 The Relic: Experimental Biochip
+
+// Programs (11)
+3 Afterparty at Lizzie's
+3 Safety Override
+3 The Heist
+2 Cyberpsychosis"></textarea>
 	</form>
 	<div class="cyber-button cyber-glitch-2" onclick="submit_decklist()">Submit</div>
 </section>
 <div id="loading_backdrop">
-	<div id="loading_spinner" class="code-block mt-6">
+	<div id="loading_spinner" class="code-block mt-6" style="padding: 2em">
 		<span>Loading...</span>
 		<div class="progress"></div>
 

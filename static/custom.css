@@ -20,20 +20,21 @@ nav {
 		display: flex;
 		gap: 1em;
 		align-items: center;
+		margin-left: 2em;
 	}
 
-	nav img {
-		width: 3em;
-	}
+		nav .logo img {
+			width: 3em;
+		}
 
-	nav h1 {
-		margin: 0;
-		padding: 0;
-		align-self: center;
-	}
+		nav .logo h1 {
+			margin: 0;
+			padding: 0;
+			align-self: center;
+		}
 
-	nav a {
-		color: var(--black)!important;
+	nav .ko-fi {
+		margin-right: 1em;
 	}
 
 #content {
@@ -41,8 +42,17 @@ nav {
 	min-width: 350px;
 }
 
-.code-block a {
-	color: var(--yellow);
+a {
+	color: var(--red);
+}
+
+.cyber-button a {
+	color: white !important;
+	text-decoration: none;
+}
+
+p {
+	font-size: 1.5em;
 }
 
 form {
@@ -95,3 +105,23 @@ textarea {
 		#preview .card_image img {
 			width: 100%;
 		}
+
+#support_banner {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: var(--black);
+	width: 100vw;
+}
+
+	#support_banner div {
+		padding: 0 1em 1em 1em;
+	}
+
+.start_again {
+	display: block;
+	padding: 0.5em 0 1em 0;
+	margin-bottom: 1em;
+	font-size: 1.2em;
+	text-align: center;
+}

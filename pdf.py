@@ -43,6 +43,3 @@ def create(images, save_as):
         if position == PER_PAGE - 1 or i == len(images) - 1:
             pdf.showPage()
     pdf.save()
-
-file_list = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp']
-create(file_list, 'test.pdf')

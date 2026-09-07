@@ -1,34 +1,18 @@
 {% extends "template.html" %}
 {% block body %}
 <section id="content">
-	<h3 class="cyber-h">Preview</h3>
-	{% if not_found != [] %}
-		<div class="cyber-att-2">Warning! Some cards could not be found</div>
-		<div class="code-block mt-6">
-			<ul>
-			{% for card in not_found %}
-				<li>{{ card }}</li>
-			{% endfor %}
-			</ul>
-		</div>
-		<br>
-		<br>
-	{% endif %}
-
-	<section id="preview">
-		{% for card in cards %}
-			<div class="card_image">
-				<img src="{{ card['localImage'] }}">
-			</div>
-		{% endfor %}
-	</section>
-	
-	<form id="generate_form" method="POST" action="/generate">
-		<input type="hidden" name="deck_id" value="{{ deck_id }}">
-	</form>
-	<div class="cyber-button" onclick="submit_decklist()">Generate</div>
+	<h3 class="cyber-h">Download</h3>
+	<p>Your deck is ready!</p>
+	<a href="{{ deck_link }}" download="download" class="cyber-button" style="display: block">Download PDF</a>
 	<br>
-	<a class="start_again" href="/">Start again</a>
+	<br>
+	<a class="start_again" style="display: block" href="/">Start again</a>
+	<div id="support_banner" class="cyber-razor-top bg-dark fg-white p-3 mt-4">
+		<div>
+			<p>If you found this tool useful, help keep it free and ad-free for everyone with a donation:</p>
+			<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Send me some eddies', '#707070', 'F1F7326TN');kofiwidget2.draw();</script>
+		</div>
+	</div>
 </section>
 <div id="loading_backdrop">
 	<div id="loading_spinner" class="code-block mt-6" style="padding: 2em">

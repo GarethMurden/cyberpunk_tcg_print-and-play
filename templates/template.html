@@ -6,15 +6,16 @@
 	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='card_logo.ico') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='cyberpunk.css') }}"/>
 	<link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}"/>
-	<title>Cyberpunk TCG Print &amp; Play</title>
+	<title>Cyberpunk TCG Print at Home</title>
 </head>
 <body>
 	<nav class="cyber-razor-bottom bg-dark fg-white p-3 mt-4">
 		<div class="logo">
 			<img src="{{ url_for('static', filename='card_logo.png') }}" class="cyber-glitch-1">
-			<h1>Title</h1>
 		</div>
-		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Send me some eddies', '#000', 'F1F7326TN');kofiwidget2.draw();</script> 
+		<div class="ko-fi">
+			<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Send me some €$', '#000', 'F1F7326TN');kofiwidget2.draw();</script> 
+		</div>
 	</nav>
 	{% if message %}
 		<div class="alert message">
