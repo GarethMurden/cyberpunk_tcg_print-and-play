@@ -5,4 +5,4 @@ temp/
 keys.json
 *.json
 *.webp
-*.*pdf
+*.pdf
