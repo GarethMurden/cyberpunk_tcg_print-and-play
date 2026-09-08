@@ -1,8 +1,12 @@
+import os
 import sys
 from PIL import Image, ImageOps
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
+
+dirname, _ = os.path.split(os.path.abspath(__file__))
+THIS_DIRECTORY = f'{dirname}{os.sep}'
 
 PAGE_W, PAGE_H = A4
 IMAGE_W = PAGE_W / 4
@@ -24,7 +28,7 @@ def create(images, save_as):
         image = Image.open(filename)
         image = ImageOps.exif_transpose(image)
 
-        temp_file = f'temp/image_{i}.jpg'
+        temp_file = f'{THIS_DIRECTORY}temp/image_{i}.jpg'
         image.convert('RGB').save(
             temp_file,
             'JPEG',
