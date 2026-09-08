@@ -125,3 +125,22 @@ textarea {
 	font-size: 1.2em;
 	text-align: center;
 }
+
+.error_top {
+	top: 0;
+}
+
+.error_bottom {
+	bottom: 0;
+}
+
+
+.error {
+	position: fixed;
+	width: 100vw;
+	left: 0;
+}
+
+	.error a {
+		color: black;
+	}

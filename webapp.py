@@ -25,7 +25,8 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def root():
     return render_template(
-        'index.html'
+        'index.html',
+        error = request.args.get('error', None)
     )
 
 @app.route('/preview', methods=['POST'])
@@ -33,6 +34,8 @@ def preview():
     if request.method == 'POST':
         decklist = request.form.get('decklist')
         cards, not_found = parse_decklist(decklist)
+        if len(cards) < 1:
+            return redirect('/?error=invalid_decklist')
         deck_id = cache_decklist(cards)
         return render_template(
             'preview.html',
@@ -51,7 +54,7 @@ def generate():
         deck_name = f'cyberpunk_tgc_print_{deck_id}_{datetime.now().strftime("%Y%m%d")}'
         clear_old_downloads()
         pdf_file = pdf.create(
-            [c['localImage'] for c in cards],
+            [f"{THIS_DIRECTORY}{os.sep}{c['localImage']}" for c in cards],
             f'{THIS_DIRECTORY}static{os.sep}downloads{os.sep}{deck_name}.pdf'
         )
         os.remove(f'{THIS_DIRECTORY}cache{os.sep}deck_{deck_id}.json')
@@ -107,7 +110,7 @@ def load_json(filename):
         return json.loads(f.read())
 
 def name_to_slug(name):
-    # slug = name.replace(':', '').replace(',', '').replace("'", '').replace(' ', '-')
+    name = name.replace('El Capitán: El Capitán', 'El Capitán') # quirk in official export
     slug = name.lower()
     slug = re.sub('[^0-9a-zA-Z ]+', '', slug)
     slug = slug.replace(' ', '-')
