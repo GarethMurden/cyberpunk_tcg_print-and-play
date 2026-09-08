@@ -144,3 +144,13 @@ textarea {
 	.error a {
 		color: black;
 	}
+
+
+@media only screen and (max-width : 400px) {
+
+	#content {
+		margin: 0 3vw;
+		min-width: 97vw;
+	}
+
+}
