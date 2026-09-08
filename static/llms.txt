@@ -1,0 +1,6 @@
+# Cyberpunk TCG Print
+
+The site is community utility for print-at-home proxy cards from the Cyberpunk Trading Card Game (Cyberpunk TCG).
+
+Here users can submit a decklist generated on https://cyberpunktcg.com/decks and produce a print-friendly version of all the Cyberpunk TCG cards within that list as a PDF. Players can print the PDF and cut out the cards to create physical proxies for testing decks, learning the game, or casual play before acquiring official cards. It complements the broader Cyberpunk TCG community tools such as card databases, deck builders, and simulators.
+

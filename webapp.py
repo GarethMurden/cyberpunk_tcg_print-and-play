@@ -3,7 +3,7 @@ import json
 import os
 import re
 import requests
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 import unicodedata
 import uuid
 
@@ -73,6 +73,10 @@ def generate():
         )
     else:
         return redirect('/')
+
+@app.route('/llms.txt', methods=['GET', 'POST'])
+def llms():
+    return send_file('static/llms.txt')
 
 # FUNCTIONS
 
