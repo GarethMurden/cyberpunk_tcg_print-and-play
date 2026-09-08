@@ -12,7 +12,16 @@ import pdf
 # TODO:
 # - Read this list from a file
 EXPANSIONS = [
-    'welcome-to-night-city-retail'
+    'welcome-to-night-city-retail',
+    'starter-deck-embracing-power-retail',
+    'starter-deck-the-heist-retail',
+    'box-toppers-retail',
+    'welcome-to-night-city-beta',
+    'box-toppers-beta',
+    'set-1-promos',
+    'arasaka-demo-deck',
+    'merc-demo-deck',
+    'pre-release-beta'
 ]
 
 dirname, _ = os.path.split(os.path.abspath(__file__))
@@ -110,11 +119,21 @@ def load_json(filename):
         return json.loads(f.read())
 
 def name_to_slug(name):
+    # print(name)
     name = name.replace('El Capitán: El Capitán', 'El Capitán') # quirk in official export
-    slug = name.lower()
-    slug = re.sub('[^0-9a-zA-Z ]+', '', slug)
+    name = name.replace('Streetkid: Streetkid', 'Streetkid') # quirk in official export
+    slug = name.lower() # capitals
+    # print(slug)
+    slug = unicodedata.normalize('NFKD', slug).encode('ascii', 'ignore').decode() # accented
+    # print(slug)
+    slug = re.sub('[^0-9a-zA-Z -]+', '', slug) # non-alphanumeric
+    # print(slug)
+    slug = re.sub(' +', ' ', slug) # double spaces
+    # print(slug)
     slug = slug.replace(' ', '-')
-    slug = unicodedata.normalize('NFKD', slug).encode('ascii', 'ignore').decode()
+    # print(slug)
+    # if "street" in name.lower():
+    #     input()
     return slug
 
 def parse_decklist(decklist):
@@ -136,6 +155,7 @@ def parse_decklist(decklist):
     return cards, not_found
 
 def refresh_cache(cache_file):
+    print(' [!] REFRESHING CACHE')
     cards = []
     for expansion in EXPANSIONS:
         r = requests.get(f'https://vendortools.net/api/database/games/cyberpunk-tcg/expansions/{expansion}/cards')
