@@ -9,9 +9,11 @@ dirname, _ = os.path.split(os.path.abspath(__file__))
 THIS_DIRECTORY = f'{dirname}{os.sep}'
 
 PAGE_W, PAGE_H = A4
-IMAGE_W = PAGE_W / 4
+MARGIN = 10 * mm
+
+IMAGE_W = (PAGE_W - MARGIN) / 4
 IMAGE_H = IMAGE_W * 1024 / 733
-COLUMNS = 4
+COLUMNS = 3
 ROWS = 4
 PER_PAGE = COLUMNS * ROWS
 
@@ -22,8 +24,8 @@ def create(images, save_as):
         column = position % COLUMNS
         row = position // COLUMNS
 
-        x = column * IMAGE_W
-        y = PAGE_H - (row + 1) * IMAGE_H
+        x = MARGIN + column * IMAGE_W
+        y = PAGE_H - MARGIN - (row + 1) * IMAGE_H
 
         image = Image.open(filename)
         image = ImageOps.exif_transpose(image)

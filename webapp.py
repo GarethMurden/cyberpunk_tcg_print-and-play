@@ -165,12 +165,12 @@ def refresh_cache(cache_file):
         r = requests.get(f'https://vendortools.net/api/database/games/cyberpunk-tcg/expansions/{expansion}/cards')
         cards += r.json()['catalogCards']
     for card in cards:
-        image_name = f'{THIS_DIRECTORY}static{os.sep}card_images{os.sep}{card["slug"]}.webp'
+        image_name = f'{THIS_DIRECTORY}static{os.sep}card_images{os.sep}{card["slug"]}.jpg'
         if not os.path.exists(image_name):
             r = requests.get(card['imageUrl'])
             with open(image_name, 'wb') as f:
                 f.write(r.content)
-        card['localImage'] = f'static{os.sep}card_images{os.sep}{card["slug"]}.webp'
+        card['localImage'] = f'static{os.sep}card_images{os.sep}{card["slug"]}.jpg'
     save_json(cards, cache_file)
 
 
