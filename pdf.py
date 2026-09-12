@@ -11,10 +11,10 @@ THIS_DIRECTORY = f'{dirname}{os.sep}'
 PAGE_W, PAGE_H = A4
 MARGIN = 10 * mm
 
-IMAGE_W = (PAGE_W - MARGIN) / 4
-IMAGE_H = IMAGE_W * 1024 / 733
 COLUMNS = 3
-ROWS = 4
+ROWS = 3
+IMAGE_W = (PAGE_W - MARGIN * 2) / COLUMNS
+IMAGE_H = IMAGE_W * 1024 / 733
 PER_PAGE = COLUMNS * ROWS
 
 def create(images, save_as):
