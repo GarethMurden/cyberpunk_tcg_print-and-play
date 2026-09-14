@@ -130,8 +130,8 @@ def name_to_slug(name):
     # print(slug)
     slug = unicodedata.normalize('NFKD', slug).encode('ascii', 'ignore').decode() # accented
     # print(slug)
-    slug = re.sub('[^0-9a-zA-Z -]+', '', slug) # non-alphanumeric
-    slug = slug.replace('--', '-')
+    slug = re.sub('[^0-9a-zA-Z ]+', '', slug) # non-alphanumeric
+    slug = slug.replace('tbug', 't-bug')
     # print(slug)
     slug = re.sub(' +', ' ', slug) # double spaces
     # print(slug)
