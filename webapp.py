@@ -131,12 +131,13 @@ def name_to_slug(name):
     slug = unicodedata.normalize('NFKD', slug).encode('ascii', 'ignore').decode() # accented
     # print(slug)
     slug = re.sub('[^0-9a-zA-Z -]+', '', slug) # non-alphanumeric
+    slug = slug.replace('--', '-')
     # print(slug)
     slug = re.sub(' +', ' ', slug) # double spaces
     # print(slug)
     slug = slug.replace(' ', '-')
     # print(slug)
-    # if "street" in name.lower():
+    # if "hanako" in name.lower():
     #     input()
     return slug
 
